@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
             @Override
             public void run() {
                 seekBar.setProgress(mediaPlayer.getCurrentPosition());
-//                textSeek.setText(mediaPlayer.getCurrentPosition() + " / " + mediaPlayer.getDuration());
             }
         }, 0, 1000);
     }
@@ -74,7 +73,8 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     // нужен
     public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-
+        // поделил на 1000 тк до этого показывало слишком большие цифры , но с минутами не разобрался
+        textSeek.setText(mediaPlayer.getCurrentPosition() / 1000 + " / " + mediaPlayer.getDuration() / 1000);
     }
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
